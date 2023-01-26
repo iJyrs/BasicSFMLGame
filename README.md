@@ -12,4 +12,4 @@ https://user-images.githubusercontent.com/44748508/213646347-9dfec8d2-ac34-4cbd-
 # Discalimers / Fun Facts
 
 - ChatGPT is my teacher
-- [https://www.youtube.com/@TheCherno](TheCherno) has great tutorial videos on C++!
+- [TheCherno](https://www.youtube.com/@TheCherno) has great tutorial videos on C++!
