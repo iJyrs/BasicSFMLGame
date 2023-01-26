@@ -8,3 +8,8 @@ A Basic C++ Game made using SFML. The main goal of this project is expand my kno
 ---
 
 https://user-images.githubusercontent.com/44748508/213646347-9dfec8d2-ac34-4cbd-a026-c9435f8e4000.mp4
+
+# Discalimers / Fun Facts
+
+- ChatGPT is my teacher
+- [https://www.youtube.com/@TheCherno](TheCherno) has great tutorial videos on C++!
