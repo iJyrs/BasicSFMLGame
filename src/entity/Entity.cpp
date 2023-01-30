@@ -1,12 +1,14 @@
 #include "../../include/entity/Entity.h"
 
-Entity::Entity() {
+Entity::Entity() :
+	m_direction(0),
+	m_velocity(0)
+{
 	
 }
 
-void Entity::update(float deltaTime) {
+void Entity::update(int32_t deltaTime) {
 	sf::Vector3f position = getPosition();
-	deltaTime *= 100;
 
 	float radians = m_direction * (std::acos(-1) / 180);
 	float x = m_velocity * cos(radians) * (deltaTime);

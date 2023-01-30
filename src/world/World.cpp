@@ -4,7 +4,7 @@ World::World(const std::string name) : m_name(name) {
 
 }
 
-void World::update(float deltaTime) {
+void World::update(int32_t deltaTime) {
 
 }
 

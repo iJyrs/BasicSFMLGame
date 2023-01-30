@@ -6,7 +6,7 @@ Player::Player() {
 }
 
 void Player::handleInput() {
-    const int16_t MAX_VELOCITY = 3;
+    const int16_t MAX_VELOCITY = 1;
 
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
         m_direction = 180;

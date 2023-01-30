@@ -10,7 +10,7 @@ Game::Game() :
 
 }
 
-void Game::update(float deltaTime) {
+void Game::update(int32_t deltaTime) {
 	m_world.update(deltaTime);
 	m_player.update(deltaTime);
 }

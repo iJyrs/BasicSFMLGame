@@ -15,7 +15,7 @@ public:
 	World(const std::string m_name);
 
 public:
-	void update(float deltaTime) override;
+	void update(int32_t deltaTime) override;
 	void render(sf::RenderTarget& target) override;
 
 };

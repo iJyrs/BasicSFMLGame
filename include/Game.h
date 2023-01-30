@@ -17,7 +17,7 @@ public:
 	Game();
 
 public:
-	void update(float deltaTime);
+	void update(int32_t deltaTime);
 	void render();
 
 public:

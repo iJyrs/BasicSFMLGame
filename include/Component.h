@@ -6,7 +6,7 @@
 class Component {
 
 public:
-	virtual void update(float deltaTime) = 0;
+	virtual void update(int32_t deltaTime) = 0;
 	virtual void render(sf::RenderTarget& target) = 0;
 
 };

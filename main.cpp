@@ -7,12 +7,13 @@ int main() {
 	Game game;
 
 	sf::RenderWindow& window = game.getWindow();
-	window.setFramerateLimit(75);
+	window.setFramerateLimit(75);	
 
 	sf::Clock clock;
 
 	while (window.isOpen()) {
 		sf::Event event;
+		sf::FloatRect visibleArea;
 
 		while (window.pollEvent(event)) {
 			switch (event.type) {
@@ -20,6 +21,12 @@ int main() {
 
 				window.close();
 				
+				break;
+			case sf::Event::Resized:
+
+				visibleArea = sf::FloatRect(0, 0, (float) event.size.width, (float) event.size.height);
+				window.setView(sf::View(visibleArea));
+
 				break;
 			case sf::Event::KeyPressed:
 
@@ -29,10 +36,9 @@ int main() {
 			}
 		}
 
-		window.clear();
+		window.clear(sf::Color::Red);
 
-
-		game.update(clock.restart().asSeconds());
+		game.update(clock.restart().asMilliseconds());
 		game.render();
 
 		window.display();

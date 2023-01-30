@@ -1,15 +1,38 @@
 #include "../../include/entity/EntityHuman.h"
-#include <SFML/Graphics/RectangleShape.hpp>
+
+#include <array>
+#include <SFML/Graphics.hpp> 
 
 EntityHuman::EntityHuman() {
+	m_texture.loadFromFile("assets/player.png");
 
+	m_sprite.setTexture(m_texture);
+	m_sprite.setTextureRect(sf::IntRect(0, 0, 48, 48));
+
+	m_sprite.setScale({2, 2});
+
+	std::vector<Frame> frames;
+	frames.emplace_back(sf::IntRect(0, 336, 48, 48), 500);
+	frames.emplace_back(sf::IntRect(48, 336, 48, 48), 500);
+	frames.emplace_back(sf::IntRect(96, 336, 48, 48), 500);
+	frames.emplace_back(sf::IntRect(144, 336, 48, 48), 500);
+
+	Animation animation("idle", frames);
+	m_animation = std::move(animation);
+}
+
+void EntityHuman::update(int32_t deltaTime) {
+	Entity::update(deltaTime);
+
+	const Frame* frame = m_animation.nextFrame(deltaTime);
+	if (frame == nullptr) frame = m_animation.nextFrame(deltaTime);
+
+	m_sprite.setTextureRect(frame->bounds);
 }
 
 void EntityHuman::render(sf::RenderTarget& target) {
-	sf::RectangleShape shape(sf::Vector2f(10, 10));
 	sf::Vector3f pos = getPosition();
+	m_sprite.setPosition(pos.x, pos.y);
 
-	shape.setPosition(sf::Vector2f(pos.x, pos.y));
-
-	target.draw(shape);
+	target.draw(m_sprite);
 }
