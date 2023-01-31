@@ -24,7 +24,6 @@ public:
 	sf::RenderWindow& getWindow();
 	World& getWorld();
 	Player& getPlayer();
-	void setPlayer(const Player& player);
 
 };
 

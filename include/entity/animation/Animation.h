@@ -14,7 +14,7 @@ struct Frame {
 class Animation {
 
 private:
-	std::string m_name;
+	const std::string m_name;
 	std::vector<Frame> m_frames;
 	int8_t m_index = 0;
 	int16_t m_indexProgress = 0;

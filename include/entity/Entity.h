@@ -4,9 +4,10 @@
 #include <SFML/Graphics.hpp>
 
 #include "../Component.h"
+#include "animation/Animated.h"
 #include "../world/World.h"
 
-class Entity : public Component {
+class Entity : public Component, public Animated {
 
 public:
 	Entity();

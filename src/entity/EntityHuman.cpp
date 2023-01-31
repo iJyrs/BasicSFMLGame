@@ -9,7 +9,7 @@ EntityHuman::EntityHuman() {
 	m_sprite.setTexture(m_texture);
 	m_sprite.setTextureRect(sf::IntRect(0, 0, 48, 48));
 
-	m_sprite.setScale({2, 2});
+	m_sprite.setScale({5, 5});
 
 	std::vector<Frame> frames;
 	frames.emplace_back(sf::IntRect(0, 336, 48, 48), 500);
@@ -18,16 +18,15 @@ EntityHuman::EntityHuman() {
 	frames.emplace_back(sf::IntRect(144, 336, 48, 48), 500);
 
 	Animation animation("idle", frames);
-	m_animation = std::move(animation);
+	registerAnimation(animation);
 }
 
 void EntityHuman::update(int32_t deltaTime) {
 	Entity::update(deltaTime);
 
-	const Frame* frame = m_animation.nextFrame(deltaTime);
-	if (frame == nullptr) frame = m_animation.nextFrame(deltaTime);
-
-	m_sprite.setTextureRect(frame->bounds);
+	const Frame* frame = nextFrame(deltaTime);
+	if (frame != nullptr)
+		m_sprite.setTextureRect(frame->bounds);
 }
 
 void EntityHuman::render(sf::RenderTarget& target) {

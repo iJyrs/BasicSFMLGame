@@ -12,7 +12,6 @@ public:
 private:
 	sf::Texture m_texture;
 	sf::Sprite m_sprite;
-	Animation m_animation;
 
 public:
 	void update(int32_t deltaTime) override;

@@ -31,7 +31,3 @@ World& Game::getWorld() {
 Player& Game::getPlayer() {
 	return m_player;
 }
-
-void Game::setPlayer(const Player& player) {
-	m_player = player;
-}
