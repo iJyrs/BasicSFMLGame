@@ -1,6 +1,6 @@
 #include "../../../include/entity/animation/Animated.h"
 
-void Animated::registerAnimation(const Animation animation) {
+void Animated::registerAnimation(const Animation& animation) {
 	m_animations.insert({ animation.getName(), animation });
 }
 
@@ -24,9 +24,16 @@ void Animated::playAnimation(const std::string name) {
 	currentAnimation = name;
 }
 
-const Frame* Animated::nextFrame(int16_t deltaTime) {
+const Frame* Animated::nextFrame(const int16_t& deltaTime, const FaceDirection& direction) {
 	Animation* animation = getAnimation(currentAnimation);
 	if (animation == nullptr) return nullptr;
 
-	return animation->nextFrame(deltaTime);
+	const Frame* frame = animation->nextFrame(deltaTime, direction);
+	if (frame == nullptr) {
+		if (!animation->isLooping()) {
+			playAnimation("idle");
+		}
+	}
+
+	return frame;
 }

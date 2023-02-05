@@ -1,0 +1,18 @@
+#ifndef FACEDIRECTION_H
+#define FACEDIRECTION_H
+
+enum FaceDirection {
+
+	UNKNOWN = -1,
+	NORTH = 0,
+	SOUTH = 180,
+	EAST = 90,
+	WEST = 270,
+	NORTH_EAST = 45,
+	NORTH_WEST = 315,
+	SOUTH_EAST = 135,
+	SOUTH_WEST = 225
+
+};
+
+#endif
